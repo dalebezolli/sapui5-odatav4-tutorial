@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>OData V4 Tutorial</title>
+    <style>
+        html, body, body > div, #container, #container-uiarea {
+            height: 100%;
+        }
+    </style>
+    <script
+        id="sap-ui-bootstrap"
+        src="resources/sap-ui-core.js"
+        data-sap-ui-theme="sap_horizon_dark"
+        data-sap-ui-resourceroots='{
+            "sap.d.sapui5odatav4tutorial": "./"
+        }'
+        data-sap-ui-oninit="module:sap/d/sapui5odatav4tutorial/initMockServer"
+        data-sap-ui-compatVersion="edge"
+        data-sap-ui-async="true"
+        data-sap-ui-frameOptions="trusted"
+    ></script>
+</head>
+<body class="sapUiBody" id="content">
+    <div
+        data-sap-ui-component
+        data-name="sap.d.sapui5odatav4tutorial"
+        data-id="container"
+        data-settings='{"id" : "sap.d.sapui5odatav4tutorial"}'
+        data-handle-validation="true"
+    ></div>
+</body>
+</html>
