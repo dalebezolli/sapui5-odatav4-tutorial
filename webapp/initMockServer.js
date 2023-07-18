@@ -1,12 +1,14 @@
 sap.ui.define([
-    "sap/d/sapui5odatav4tutorial/localService/mockserver",
-    "sap/m/MessageBox",
-], function(mockserver) {
-    "use strict";
+	"sap/ui/core/tutorial/odatav4/localService/mockserver",
+	"sap/m/MessageBox"
+], function (mockserver, MessageBox) {
+	"use strict";
 
-    mockserver.init().catch(function(error) {
-        MessageBox.error(error.message);
-    }).finally(function() {
-        sap.ui.require(["sap/ui/core/ComponentSupport"]);
-    });
+	// initialize the mock server
+	mockserver.init().catch(function (oError) {
+		MessageBox.error(oError.message);
+	}).finally(function () {
+		// initialize the embedded component on the HTML page
+		sap.ui.require(["sap/ui/core/ComponentSupport"]);
+	});
 });

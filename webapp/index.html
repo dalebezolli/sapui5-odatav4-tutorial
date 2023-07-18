@@ -1,35 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>OData V4 Tutorial</title>
-    <style>
-        html, body, body > div, #container, #container-uiarea {
-            height: 100%;
-        }
-    </style>
-    <script
-        id="sap-ui-bootstrap"
-        src="resources/sap-ui-core.js"
-        data-sap-ui-theme="sap_horizon_dark"
-        data-sap-ui-resourceroots='{
-            "sap.d.sapui5odatav4tutorial": "./"
-        }'
-        data-sap-ui-oninit="module:sap/d/sapui5odatav4tutorial/initMockServer"
-        data-sap-ui-compatVersion="edge"
-        data-sap-ui-async="true"
-        data-sap-ui-frameOptions="trusted"
-    ></script>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>OData V4 Tutorial</title>
+	<script id="sap-ui-bootstrap"
+		src="https://sdk.openui5.org/resources/sap-ui-core.js"
+		data-sap-ui-theme="sap_belize"
+		data-sap-ui-resourceroots='{
+			"sap.ui.core.tutorial.odatav4": "./"
+		}'
+		data-sap-ui-oninit="module:sap/ui/core/tutorial/odatav4/initMockServer"
+		data-sap-ui-compatVersion="edge"
+		data-sap-ui-async="true">
+	</script>
 </head>
-<body class="sapUiBody" id="content">
-    <div
-        data-sap-ui-component
-        data-name="sap.d.sapui5odatav4tutorial"
-        data-id="container"
-        data-settings='{"id" : "sap.d.sapui5odatav4tutorial"}'
-        data-handle-validation="true"
-    ></div>
+<body class="sapUiBody">
+	<div data-sap-ui-component data-name="sap.ui.core.tutorial.odatav4" data-id="container" data-settings='{"id" : "odatav4"}'></div>
 </body>
 </html>
