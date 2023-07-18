@@ -49,6 +49,7 @@
 				"sap.ui.layout": {}
 			}
 		},
+		"handleValidation": true,
 		"contentDensities": {
 			"compact": true,
 			"cozy": true
