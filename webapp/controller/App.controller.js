@@ -50,6 +50,36 @@ sap.ui.define([
 				}
 			})
 		},
+		onDelete: function() {
+			const selected = this.byId("peopleList").getSelectedItem();
+		
+			if(!selected) return;
+
+			const resourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+			const context = selected.getBindingContext();
+			const deletedUsername = context.getProperty("UserName");
+
+			console.log(context);
+
+			context.delete().then(successCallback, errorCallback);
+			// this._setUIChanges(true);
+
+			const successCallback = function() {
+				MessageToast.show(resourceBundle.getText("deletionSuccessMessage", [deletedUsername]));
+			}.bind(this);
+
+			const errorCallback = function(error) {
+				this._setUIChanges();
+				
+				if(error.canceled) {
+					MessageToast.show(resourceBundle.getText("deletionRestoreMessage", [deletedUsername]));
+					return;
+				}
+
+				MessageBox.error(error.message + ": " + deletedUsername);
+			}.bind(this);
+
+		},
 		onInputChange: function(event) {
 			if(event.getParameter("escPressed")) {
 				this._setUIChanges();
