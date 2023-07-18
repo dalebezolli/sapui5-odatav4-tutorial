@@ -107,6 +107,22 @@ sap.ui.define([
 			this._technicalErrors = false;
 			this._setUIChanges();
 		},
+		onResetDataSource: function() {
+			const resourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
+			const model = this.getView().getModel();
+			const operation = model.bindContext("ResetDataSource(...)");
+
+			operation.execute().then(successCallback, errorCallback);
+
+			const successCallback = function() {
+				model.refresh();
+				MessageToast.show(resourceBundle.getText("sourceResetSuccessMessage"));
+			}.bind(this);
+
+			const errorCallback = function(error) {
+				MessageBox.error(error.message);
+			}.bind(this);
+		},
 		onSave: function() {
 			const resourceBundle = this.getOwnerComponent().getModel("i18n").getResourceBundle();
 
