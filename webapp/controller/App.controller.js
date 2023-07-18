@@ -213,6 +213,18 @@ sap.ui.define([
 			const layout = this.byId("defaultLayout");
 			const searchField = this.byId("searchField");
 
+			if(!detailArea) return;
+
+			const oldContext = detailArea.getBindingContext();
+			if(oldContext) {
+				oldContext.setKeepAlive(false);
+			}
+
+			if(userContext) {
+				userContext.setKeepAlive(true, this._setDetailsArea.bind(this));
+			}
+
+
 			detailArea.setBindingContext(userContext || null);
 			detailArea.setVisible(!!userContext);
 			layout.setSize(userContext ? "60%" : "100%");
