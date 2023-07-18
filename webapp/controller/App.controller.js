@@ -191,6 +191,9 @@ sap.ui.define([
 
 			messageOpen = true;
 		},
+		onSelectionChange: function(event) {
+			this._setDetailsArea(event.getParameter("listItem").getBindingContext());
+		},
 		_setUIChanges: function(hasUIChanges) {
 			if(this._technicalErrors) {
 				hasUIChanges = true;
@@ -204,6 +207,18 @@ sap.ui.define([
 		_setBusy: function(isBusy) {
 			const model = this.getView().getModel("appView");
 			model.setProperty("/busy", isBusy);
+		},
+		_setDetailsArea: function(userContext) {
+			const detailArea = this.byId("detailArea");
+			const layout = this.byId("defaultLayout");
+			const searchField = this.byId("searchField");
+
+			detailArea.setBindingContext(userContext || null);
+			detailArea.setVisible(!!userContext);
+			layout.setSize(userContext ? "60%" : "100%");
+			layout.setResizable(!!userContext);
+			searchField.setWidth(userContext ?  "40%" : "20%");
+
 		}
 	});
 });
